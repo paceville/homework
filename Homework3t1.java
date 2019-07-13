@@ -18,6 +18,7 @@ public class Homework3t1 {
             Random random = new Random();
             array[b] = (short) random.nextInt();
         }
+        System.out.print("First array view: ");
         System.out.println(Arrays.toString(array));
 
         for (int a = 1; a < array.length; a++) {
@@ -25,19 +26,17 @@ public class Homework3t1 {
                 if (array[i] > array[i + 1]) {
 
                     short j = array[i];
-                    //System.out.println(j);
                     array[i] = array[i + 1];
                     array[i + 1] = j;
-                    System.out.println("j = " + j);
-                    System.out.println("array i = " + array[i]);
-                    System.out.println("array i+1 = " + array[i + 1]);
-                    //if (int a = array[i]; a <)
-                    System.out.println(Arrays.toString(array));
+                    // System.out.println("j = " + j);
+                    // System.out.println("array i = " + array[i]);
+                    // System.out.println("array i+1 = " + array[i + 1]);
                 }
 
             }
 
         }
-
+        System.out.print("Sorted array: ");
+        System.out.println(Arrays.toString(array));
     }
 }
