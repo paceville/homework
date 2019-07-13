@@ -1,31 +1,43 @@
 package com.company;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
-    public class Homework3t1 {
-        public static void main(String[] args) {
+public class Homework3t1 {
 
-            double[] array = {0, -14, 10, 9, 598, 6, -55, 4, 3, 1, 497, 100500, -100500, 0, -14};
+    public static void main(String[] args) {
 
-            System.out.println(Arrays.toString(array));
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size;
+        size = input.nextInt();
 
-            for (int a = 1; a < array.length; a++) {
-                for (int i = 0; i < array.length-a; i++) {
+        short[] array = new short[size];
 
-                    if (array[i] > array[i + 1]) {
-                        double j = array[i];
-                        //System.out.println(j);
-                        array[i] = array[i + 1];
-                        array[i + 1] = j;
-                        System.out.println("j = " + j);
-                        System.out.println("array i = " + array[i]);
-                        System.out.println("array i+1 = " + array[i + 1]);
-                        //if (int a = array[i]; a <)
-                        System.out.println(Arrays.toString(array));
-                    }
+        for (int b = 0; b < array.length-1; b++) {
+            Random random = new Random();
+            array[b] = (short) random.nextInt();
+        }
+        System.out.println(Arrays.toString(array));
 
+        for (int a = 1; a < array.length; a++) {
+            for (int i = 0; i < array.length-a; i++) {
+                if (array[i] > array[i + 1]) {
+
+                    short j = array[i];
+                    //System.out.println(j);
+                    array[i] = array[i + 1];
+                    array[i + 1] = j;
+                    System.out.println("j = " + j);
+                    System.out.println("array i = " + array[i]);
+                    System.out.println("array i+1 = " + array[i + 1]);
+                    //if (int a = array[i]; a <)
+                    System.out.println(Arrays.toString(array));
                 }
 
             }
 
         }
+
     }
+}
