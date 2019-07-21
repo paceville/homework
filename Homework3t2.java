@@ -13,17 +13,16 @@ public class Homework3t2 {
         System.out.println("How many candidates do you have?");
         int amount = input.nextInt();
 
-        Candidate man = new Candidate();
 
         Candidate grooms[] = new Candidate[amount];
-        
-        // на этом этапе проблема: в массиве все элементы пустые, в них ничего не записывается
 
-        for (int i = 0; i < grooms.length - 1; i++){
+
+        for (int i = 0; i < amount; i++){
+            Candidate man = new Candidate();
             System.out.println("Input name of candidate");
             man.name = input.next();
             man.iq = (short) ((short) 30 + random.nextInt(90));
-            //man = grooms[i];
+            grooms[i] = man;
         }
         System.out.println(Arrays.toString(grooms));
 
@@ -51,7 +50,8 @@ public class Homework3t2 {
         int top = input.nextInt();
 
         for (int i = 0; i < top; i++){
-            System.out.println(i+1 + ". " + man.name + "`s IQ is " + grooms[i]);
+            //вопрос с new Candidate[]: создается новый массив, в который передается i элемент массива grooms? зачем?
+            System.out.println(Arrays.toString(new Candidate[]{grooms[i]}));
         }
 
     }
@@ -60,4 +60,9 @@ public class Homework3t2 {
 class Candidate {
     String name;
     short iq;
+
+    @Override
+    public String toString() {
+        return name + "`s IQ is " + iq;
+    }
 }
