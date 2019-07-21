@@ -29,13 +29,16 @@ public class Homework4 {
 
         }
 
-        for (int a = 1; a < groom.size(); a++){
-            for (int i = 0; i < groom.size()-1; i++) {
+        // проблема: в топ выводится n раз последний кандидат. проблема с элементами списка? 
 
+
+        for (int a = 1; a < groom.size(); a++) {
+            for (int i = 0; i < groom.size() - a; i++) {
                 Man left = groom.get(i);
                 Man right = groom.get(i + 1);
 
                 if (left.iq < right.iq) {
+                    int temp = left.iq;
                     left = groom.get(i + 1);
                     right = groom.get(i);
                     System.out.println("left = " + left);
@@ -44,7 +47,7 @@ public class Homework4 {
                 //System.out.println("left = " + left);
                 //System.out.println("right = " + right);
                 //System.out.println(groom.get(i));
-                //System.out.println(man.iq);
+                System.out.println(man.iq);
             }
         }
 
@@ -52,15 +55,24 @@ public class Homework4 {
 
         int top = input.nextInt();
 
-        //for (int candidates = 0; candidates <= top; candidates++) ;
-
-
-
+        //for (int candidates = 1; candidates <= top; candidates++) {
+            for (int i = 0; i < groom.size(); i++)
+            //groom.get(candidates);
+            System.out.println(groom.get(i));
+            //55System.out.println(Arrays.toString(new ArrayList[]{groom}));
+        }
 
     }
 
-    static class Man {
-        java.lang.String name;
-        int iq;
-    }
-}
+
+
+
+      class Man {
+          java.lang.String name;
+          int iq;
+
+          @Override
+          public String toString(){
+              return name + "`s IQ is " + iq;
+          }
+      }
