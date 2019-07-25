@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.xml.bind.SchemaOutputResolver;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -14,6 +13,7 @@ abstract class FlightNumber {
 
     SimpleDateFormat flightDate = new SimpleDateFormat("dd-mm-yyyy");
     String flightNumber = null;
+
 }
 
 abstract class Airlines extends FlightNumber {
@@ -23,18 +23,19 @@ abstract class Airlines extends FlightNumber {
 abstract class Places extends Airlines {
     String departurePlace = null;
     String destinationPlace = null;
-
 }
 
 abstract class Price extends Places {
     int flightPrice = 0;
 }
 
-interface Booking {
-    public void flightBooking();
+abstract class Booking extends Price{
+    public void flightBooking(){
+        System.out.println("Booking successful!");
+    }
 }
 
-abstract class People extends Price {
+abstract class People extends Booking {
     String firstName;
     String lastName;
     SimpleDateFormat birthDay = new SimpleDateFormat("dd-mm-yyyy");
@@ -45,17 +46,17 @@ class Passenger extends People{
 
     int passengerClass = 0;
     int passport = 0;
-    
+
 }
 
-    class NewBooking implements Booking{
+class NewBooking extends Booking {
     public static void newBooking() {
         Scanner input = new Scanner(System.in);
         Random random = new Random();
 
         Passenger pass = new Passenger();
 
-       // ArrayList<Passenger> = new ArrayList<>();
+        // ArrayList<Passenger> = new ArrayList<>();
 
         System.out.print("What`s your first name?");
         pass.firstName = input.next();
@@ -118,14 +119,7 @@ class Passenger extends People{
         System.out.println("Class:" + pass.passengerClass + "class");
         System.out.println("Price:" + pass.flightPrice);
 
-        public void flightBooking(){
-            System.out.println("Booking successful!");
-        }
-
         pass.flightBooking();
-        
+
     }
-        @Override
-        public void flightBooking() {
-        }
 }
