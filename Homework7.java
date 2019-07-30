@@ -7,7 +7,7 @@ public class Homework7 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("How many candidates will you sort?");
+        System.out.println("How many candidates you will sort?");
         int amount = input.nextInt();
 
         ArrayList <Candidates> candidates = new ArrayList<>(amount);
